@@ -14,7 +14,8 @@ nav {
   flex: 1 1 80%;
   display: flex;
   justify-content: flex-end;
-  transition: none;
+  /* For mobile toggle */
+  overflow: auto;
 }
 nav ul {
   display: flex;
