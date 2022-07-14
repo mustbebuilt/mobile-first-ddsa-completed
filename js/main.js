@@ -1,6 +1,8 @@
 (function () {
-    var setMenu = function () {
-      // variables
+  var setMenu = function () {
+    // variables
+    var burgerMenuContainer = document.querySelector(".burgerMenuContainer");
+    if (window.getComputedStyle(burgerMenuContainer).display !== "none") {
       var burgerMenu = document.querySelector(".burgerMenuContainer img");
       var navBar = document.querySelector("nav");
       var navBarStatus = false;
@@ -26,9 +28,10 @@
         burgerMenu.setAttribute("src", "images/whiteMenu.svg");
       }
     }
+  };
+  setMenu();
+  // resize
+  window.addEventListener("resize", function () {
     setMenu();
-    // resize
-    window.addEventListener("resize", function () {
-      setMenu();
-    });
-  })();
+  });
+})();
