@@ -14,7 +14,7 @@ nav {
   flex: 1 1 80%;
   display: flex;
   justify-content: flex-end;
-  transform: none;
+  transition: none;
 }
 nav ul {
   display: flex;
