@@ -63,6 +63,7 @@ footer{
   bottom:0;
   width:100%;
 }
+ /* Rules for tablets */
 @media only screen and (min-width: 680px) and (max-width: 1280px) {
   header h2 {
     color: #f00;
