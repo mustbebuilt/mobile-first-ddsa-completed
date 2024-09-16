@@ -11,9 +11,11 @@ body{
     background: rgba(0,0,0,0.8);
 }
 header{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns:2fr 1fr;
+}
+.burgerMenuContainer{
+    justify-self: flex-end;
 }
 header h2{
     color:#fff;
@@ -22,7 +24,8 @@ header > div{
     padding:10px;
 }
 nav{
-    flex: 1 1 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
     overflow: hidden;
     transition: height 0.5s
 }
@@ -44,12 +47,9 @@ main{
     margin:0 10px
 }
 .articles{
-    display: flex;
-    flex-wrap:wrap;
-}
-.articles > div{
-    flex:1 1 50%;
-    padding-right: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
 }
 .articles img{
     width:100%;

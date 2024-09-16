@@ -8,8 +8,11 @@
 header {
   max-width: 1280px;
   margin: auto;
+  grid-template-columns: 1fr 2fr;
 }
 nav {
+  grid-column-start: 2;
+  grid-column-end: 3;
   height: 80px;
   flex: 1 1 80%;
   display: flex;
@@ -38,19 +41,9 @@ main {
   margin: 0 auto 8rem auto;
 }
 .articles {
-  flex-wrap: nowrap;
+  grid-template-columns: repeat(4, 1fr);
   font-size: 1.2rem;
-}
-.articles > div {
-  flex: 1 1 25%;
-  padding: 0;
-  margin: 0 20px;
-}
-.articles > div:first-child {
-  margin-left: 0;
-}
-.articles > div:last-child {
-  margin-right: 0;
+  gap:40px;
 }
 a.shrink img {
   transform: scale(100%);
