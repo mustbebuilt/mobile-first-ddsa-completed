@@ -1,34 +1,34 @@
 (function () {
-  var setMenu = function () {
-    // variables
-    var burgerMenu = document.querySelector(".burgerMenuContainer img");
-    var navBar = document.querySelector("nav");
-    var navBarStatus = false;
-    navBar.removeAttribute("style");
-    // mobile menu
-    if (window.getComputedStyle(navBar).overflow == "hidden") {
-      var navHeight = navBar.offsetHeight;
-      navBar.style.height = "0px";
-      burgerMenu.addEventListener("click", function () {
-        if (navBarStatus) {
-          navBarStatus = false;
-          navBar.style.height = "0px";
-          burgerMenu.setAttribute("src", "images/whiteMenu.svg");
-        } else {
-          navBarStatus = true;
-          navBar.style.height = navHeight + "px";
-          burgerMenu.setAttribute("src", "images/whiteClose.svg");
-        }
-      });
+  const burgerMenu = document.querySelector(".burgerMenuContainer img");
+  const navBar = document.querySelector("nav");
+
+  // Toggles max-heights for animations
+
+  if (!burgerMenu || !navBar) return; // safety check
+
+  const toggleMenu = () => {
+    navBar.classList.toggle("open");
+    burgerMenu.classList.toggle("open");
+  };
+
+  const updateMenuOnResize = () => {
+    console.info(window.getComputedStyle(navBar).overflow);
+    if (window.getComputedStyle(navBar).overflow === "hidden") {
+      // Mobile mode
+      navBar.classList.remove("desktop");
+      burgerMenu.style.display = "block";
     } else {
-      navBarStatus = false;
-      navBar.removeAttribute("style");
-      burgerMenu.setAttribute("src", "images/whiteMenu.svg");
+      // Desktop mode
+      navBar.classList.add("desktop");
+      navBar.classList.remove("open");
+      burgerMenu.classList.remove("open");
+      burgerMenu.style.display = "none";
     }
   };
-  setMenu();
-  // resize
-  window.addEventListener("resize", function () {
-    setMenu();
-  });
+
+  burgerMenu.addEventListener("click", toggleMenu);
+  window.addEventListener("resize", updateMenuOnResize);
+
+  // initial setup
+  updateMenuOnResize();
 })();

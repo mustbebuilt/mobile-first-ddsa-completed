@@ -13,14 +13,16 @@ header {
 nav {
   grid-column-start: 2;
   grid-column-end: 3;
-  height: 80px;
+  margin-top: 40px;
+    height: 80px;
   flex: 1 1 80%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   /* For mobile toggle */
-  overflow: auto;
+  overflow: visible;
 }
+
 nav ul {
   display: flex;
 }
